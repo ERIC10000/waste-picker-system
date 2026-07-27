@@ -40,11 +40,22 @@ async function request(path, { method = 'GET', body, params } = {}) {
   if (t) headers.Authorization = `Bearer ${t}`;
   if (body) headers['Content-Type'] = 'application/json';
 
-  const res = await fetch(url, {
-    method,
-    headers,
-    body: body ? JSON.stringify(body) : undefined,
-  });
+  let res;
+  try {
+    res = await fetch(url, {
+      method,
+      headers,
+      body: body ? JSON.stringify(body) : undefined,
+    });
+  } catch {
+    // The browser's own "Failed to fetch" gives no hint that the server simply
+    // is not there, which reads like a rejected password. Say what happened.
+    throw new Error(
+      BASE
+        ? `Cannot reach the API at ${BASE}. Start it with "npm run dev" in the server folder, or use the deployed dashboard.`
+        : 'Cannot reach the API. Check your internet connection and try again.'
+    );
+  }
 
   if (res.status === 401) {
     token.clear();
