@@ -5,5 +5,12 @@ dist/
 *.log
 .DS_Store
 .vite/
+__pycache__/
+*.py[cod]
 
 .vercel
+~$*
+
+# Superseded/incorrect artifacts from the interrupted documentation run.
+docs/Waste Picker System - System Documentation.docx
+docs/screenshots/prop-image*.png

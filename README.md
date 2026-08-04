@@ -64,14 +64,15 @@ security policies, and the `picker-photos` storage bucket. It is safe to run mor
 cd C:\Users\Administrator\Desktop\WastePickerSystem\server
 ```
 
-Copy `.env.example` to `.env` and paste in the three Supabase values, then:
+Copy `.env.example` to `.env`, paste in the three Supabase values, and set `SEED_ADMIN_EMAIL` plus a
+strong `SEED_ADMIN_PASSWORD`. To create demo picker accounts, also set `SEED_PICKER_PASSWORD`. Then:
 
 ```bash
 npm run seed -- --demo
 ```
 
-That creates the first superadmin (`admin@wastepickers.ke` / `Admin@1234`) plus demo pickers and
-activity so the dashboard has something to show. Drop `-- --demo` if you only want the admin account.
+The seed command creates the first superadmin plus demo pickers and activity so the dashboard has
+something to show. Drop `-- --demo` if you only want the admin account.
 
 ```bash
 npm run dev
@@ -120,7 +121,7 @@ on the host PC. To run on a **physical phone** on the same Wi-Fi, change `API_BA
 | Waste Pickers | Search and filter, approve/reject/suspend, assign roles, per-picker detail drawer |
 | Communication | Compose a broadcast to everyone, one region, or one individual; delivery + read log |
 | Activity | All collection records across the community, filterable, CSV export |
-| Reports | Registrations, by-region, communication reach and activity reports — all CSV exportable |
+| Reports | Registrations, by-region, communication reach and activity reports; CSV exports plus the detailed system-summary PDF |
 
 ---
 
@@ -149,18 +150,22 @@ browser. The `anon` key cannot read the tables directly.
 
 ---
 
-## Default credentials (after seeding)
+## Seed credentials
 
-| Role | Username | Password |
-|---|---|---|
-| Superadmin (dashboard) | `admin@wastepickers.ke` | `Admin@1234` |
-| Demo waste picker (app) | `0712000101` | `Picker@1234` |
-
-Two demo registrations (`0712000109`, `0712000110`) are left **pending** so the approval queue can be
-demonstrated live.
+Credentials are never hard-coded or published. Define `SEED_ADMIN_EMAIL`, `SEED_ADMIN_PASSWORD` and,
+when using demo data, `SEED_PICKER_PASSWORD` in the ignored `server/.env` file before running the seed
+command. Use separate, rotated credentials for production.
 
 ---
 
 ## API reference
 
 See [`docs/API.md`](docs/API.md).
+
+## Detailed system report
+
+The reproducible, illustrated report is available as
+[`docs/Waste Picker System - System Documentation.pdf`](docs/Waste%20Picker%20System%20-%20System%20Documentation.pdf),
+with the editable DOCX and generator in `docs/`. It includes a dated live-data summary, four analytics
+graphs, five implementation diagrams, ten dashboard captures and ten mobile captures. The deployed
+Reports page also exposes the PDF through **Download system PDF**.

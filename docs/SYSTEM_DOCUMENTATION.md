@@ -12,6 +12,7 @@ Supervisor: Dr. Victor Mony · Academic Year 2025/2026
 
 ## Table of contents
 
+0. [Executive system summary](#0-executive-system-summary)
 1. [System overview](#1-system-overview)
 2. [System architecture](#2-system-architecture)
 3. [Technology stack](#3-technology-stack)
@@ -25,6 +26,38 @@ Supervisor: Dr. Victor Mony · Academic Year 2025/2026
 11. [Security considerations](#11-security-considerations)
 12. [Limitations and future work](#12-limitations-and-future-work)
 13. [Appendix](#13-appendix)
+
+---
+
+## 0. Executive system summary
+
+This report records the implemented and deployed Waste Picker Management System and summarises its
+operational data. Figures in this section were captured from the authenticated reporting API on
+**4 August 2026 at 13:47 EAT**; the reproducible snapshot is stored in
+[`report_data_snapshot.json`](report_data_snapshot.json).
+
+| Indicator | Live value | Interpretation |
+|---|---:|---|
+| Registered waste pickers | 16 | Records across ten configured counties |
+| Approved | 13 (81.2%) | Pickers with an issued system identity |
+| Pending review | 3 (18.8%) | Registrations requiring administrator action |
+| Waste recorded | 1,334.69 kg | 50 collection records from 9 active collectors |
+| Broadcasts | 2 | 12 recipient deliveries |
+| Recorded reads | 1 (8.3%) | Communication engagement is the clearest improvement opportunity |
+
+The system is operational end to end: registration, approval, identity assignment, collection
+recording, targeted communication and administrative reporting have all been verified. Kisumu has the
+largest registered group (4), followed by Siaya (3). Plastic is the largest recorded material category
+(294.01 kg), closely followed by paper (266.67 kg). No rejected or suspended records were present at
+the snapshot time.
+
+![Registration status summary](generated/status_summary.png)
+
+![Registrations by region](generated/registrations_by_region.png)
+
+![Waste collection by material](generated/material_mix.png)
+
+![Six-month registration trend](generated/registration_trend.png)
 
 ---
 
@@ -317,7 +350,9 @@ attribution to the picker and their county. Exportable to CSV.
 
 ### 7.7 Reporting module
 
-Four reports, each exportable to CSV for submission to partner agencies.
+Four tabular reports are exportable to CSV for submission to partner agencies. The page also publishes
+this detailed PDF, including the dated executive summary and generated analytics graphs, through the
+**Download system PDF** action.
 
 **Registrations** — the full register with date-range, county and status filters.
 
@@ -339,18 +374,16 @@ Four reports, each exportable to CSV for submission to partner agencies.
 
 ## 8. Mobile application — functionality
 
-> **Screenshots pending.** The captures below are taken on a physical device. See
-> [Appendix C](#c-capturing-the-mobile-screenshots) for the one-line command that writes them into
-> `docs/screenshots/` with the correct filenames, after which this section renders complete.
-
 ### 8.1 Welcome and registration
 
 New users install the application and complete a structured registration form: full name, phone
 number, national ID (optional), gender, county, sub-location and password. The county list is fetched
 live from the API so it can never drift from the database.
 
-![Welcome screen](screenshots/m01-welcome.png)
-![Registration form](screenshots/m02-register.png)
+![Application splash screen](screenshots/m01-splash.jpg)
+![Welcome screen](screenshots/m02-welcome.jpg)
+![Registration form](screenshots/m03-register.jpg)
+![Waste picker sign-in](screenshots/m04-signin.jpg)
 
 ### 8.2 Awaiting approval
 
@@ -359,7 +392,7 @@ with a **Check my status** button that re-reads the profile. The moment a coordi
 record, the next check unlocks the application. Rejected and suspended accounts get their own
 explanatory message rather than a dead end.
 
-![Awaiting approval](screenshots/m03-pending.png)
+![Awaiting approval](screenshots/m05-pending.jpg)
 
 ### 8.3 The digital identity card
 
@@ -373,8 +406,8 @@ the holder's particulars, status, the property-and-return notice, and the issuin
 For a worker previously absent from every formal register, this is the tangible output of the whole
 system — a credential that can be produced when accessing a welfare programme.
 
-![ID card front](screenshots/m04-id-card-front.png)
-![ID card back](screenshots/m05-id-card-back.png)
+![ID card front](screenshots/m06-id-front.jpg)
+![ID card back](screenshots/m07-id-back.jpg)
 
 ### 8.4 Messages
 
@@ -382,7 +415,7 @@ Announcements broadcast from the dashboard arrive in the picker's inbox, newest 
 items marked and a badge on the navigation bar. Urgent messages are flagged. Opening a message clears
 its unread state, which is what feeds the read counts in the dashboard's communication report.
 
-![Messages inbox](screenshots/m06-messages.png)
+![Message received on the mobile app](screenshots/m08-message.jpg)
 
 ### 8.5 Activity log
 
@@ -390,7 +423,7 @@ Pickers record what they collect — material and weight — building a personal
 totals for all time, the current month and number of records sit at the top. This is the data that
 makes the community's output measurable at the dashboard level.
 
-![Activity log](screenshots/m07-activity.png)
+![Activity log](screenshots/m09-activity.jpg)
 
 ### 8.6 Profile
 
@@ -398,7 +431,7 @@ Personal details can be corrected, and a profile photograph uploaded — stored 
 rendered onto the identity card. The phone number is deliberately read-only, since it is the account
 identifier.
 
-![Profile](screenshots/m08-profile.png)
+![Profile](screenshots/m10-profile.jpg)
 
 ---
 
@@ -421,8 +454,9 @@ Environment variables are configured in the Vercel project, never committed:
 
 ### Mobile application
 
-`API_BASE_URL` is a `buildConfigField` in `app/build.gradle.kts`, pointing at the live HTTPS
-deployment. A commented-out debug override is provided for running against a local API.
+The Android client is maintained in a separate mobile project. Its `API_BASE_URL` build setting points
+to the live HTTPS deployment; this repository contains the shared API, database, dashboard and the
+mobile evidence used by this report.
 
 ### Running locally
 
@@ -471,6 +505,7 @@ region and year, the storage bucket present, and row-level security enabled on a
 | Privilege escalation | Role guards enforced server-side on every request, not in the client |
 | Approval integrity | Only an authenticated administrator can change a registration's status |
 | Password handling | Delegated entirely to Supabase Auth; the application never stores or sees password material |
+| Published system report | Intentionally public as academic evidence; credentials are excluded and dashboard identifiers are masked |
 
 ---
 
@@ -496,31 +531,21 @@ reach in the target region.
 
 ## 13. Appendix
 
-### A. Demonstration credentials
+### A. Demonstration accounts
 
-| Role | Username | Password |
-|---|---|---|
-| Superadmin (dashboard) | `admin@wastepickers.ke` | `Admin@1234` |
-| Waste picker (mobile) | `0712000101` | `Picker@1234` |
-
-Two registrations (`0712000109`, `0712000110`) are deliberately left **pending** so the approval
-queue can be demonstrated live.
+Credentials are deliberately not published. Local seed credentials must be supplied through
+`SEED_ADMIN_EMAIL`, `SEED_ADMIN_PASSWORD` and `SEED_PICKER_PASSWORD`; production passwords must be
+unique and rotated independently of demonstration data.
 
 ### B. API reference
 
 The complete endpoint reference is in [`API.md`](API.md).
 
-### C. Capturing the mobile screenshots
+### C. Mobile evidence set
 
-With the phone connected over USB or Wi-Fi debugging, open each screen in the app and run the
-matching line. Files land directly in `docs/screenshots/`:
-
-```bash
-adb exec-out screencap -p > docs/screenshots/m01-welcome.png
-```
-
-Repeat for `m02-register`, `m03-pending`, `m04-id-card-front`, `m05-id-card-back`, `m06-messages`,
-`m07-activity` and `m08-profile`. Section 8 then renders complete with no edits.
+The ten physical-device captures in `docs/screenshots/m01-splash.jpg` through
+`docs/screenshots/m10-profile.jpg` cover launch, welcome, registration, sign-in, pending approval,
+both sides of the identity card, messages, activity and profile management.
 
 ### D. Repository layout
 
@@ -541,3 +566,11 @@ waste-picker-system/
     ├── API.md
     └── screenshots/
 ```
+
+### E. Rebuilding the detailed report
+
+Set `WPS_REPORT_EMAIL` and `WPS_REPORT_PASSWORD` only in the current shell, then run
+`docs/capture_report_snapshot.ps1` to refresh the dated JSON snapshot. Run
+`python docs/generate_system_report.py` to regenerate the charts and DOCX, followed by
+`python docs/export_report_pdf.py` to publish the final PDF through Microsoft Word. Credentials and
+access tokens are never written into the report.

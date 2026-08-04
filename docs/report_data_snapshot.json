@@ -1,0 +1,47 @@
+{
+  "captured_at": "2026-08-04T13:47:02+03:00",
+  "sources": [
+    "https://waste-picker-system.vercel.app/api/reports/overview",
+    "https://waste-picker-system.vercel.app/api/reports/communication",
+    "https://waste-picker-system.vercel.app/api/reports/collections"
+  ],
+  "total_pickers": 16,
+  "approved": 13,
+  "pending": 3,
+  "rejected": 0,
+  "suspended": 0,
+  "announcements": 2,
+  "messages_delivered": 12,
+  "messages_read": 1,
+  "collection_records": 50,
+  "active_collectors": 9,
+  "total_kg": 1334.69,
+  "by_region": [
+    { "region": "Bungoma", "total": 1, "approved": 1, "pending": 0, "rejected": 0, "suspended": 0 },
+    { "region": "Busia", "total": 1, "approved": 1, "pending": 0, "rejected": 0, "suspended": 0 },
+    { "region": "Homa Bay", "total": 2, "approved": 2, "pending": 0, "rejected": 0, "suspended": 0 },
+    { "region": "Kakamega", "total": 2, "approved": 1, "pending": 1, "rejected": 0, "suspended": 0 },
+    { "region": "Kisumu", "total": 4, "approved": 4, "pending": 0, "rejected": 0, "suspended": 0 },
+    { "region": "Migori", "total": 1, "approved": 1, "pending": 0, "rejected": 0, "suspended": 0 },
+    { "region": "Nandi", "total": 1, "approved": 0, "pending": 1, "rejected": 0, "suspended": 0 },
+    { "region": "Siaya", "total": 3, "approved": 3, "pending": 0, "rejected": 0, "suspended": 0 },
+    { "region": "Trans Nzoia", "total": 0, "approved": 0, "pending": 0, "rejected": 0, "suspended": 0 },
+    { "region": "Vihiga", "total": 1, "approved": 0, "pending": 1, "rejected": 0, "suspended": 0 }
+  ],
+  "by_material": [
+    { "material": "Organic", "kg": 234.33 },
+    { "material": "Glass", "kg": 141.99 },
+    { "material": "Metal", "kg": 249.79 },
+    { "material": "E-waste", "kg": 147.90 },
+    { "material": "Paper", "kg": 266.67 },
+    { "material": "Plastic", "kg": 294.01 }
+  ],
+  "registration_trend": [
+    { "month": "2026-03", "registrations": 0 },
+    { "month": "2026-04", "registrations": 0 },
+    { "month": "2026-05", "registrations": 0 },
+    { "month": "2026-06", "registrations": 0 },
+    { "month": "2026-07", "registrations": 13 },
+    { "month": "2026-08", "registrations": 3 }
+  ]
+}

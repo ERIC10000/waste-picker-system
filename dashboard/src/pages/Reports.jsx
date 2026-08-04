@@ -103,20 +103,29 @@ export default function Reports() {
               </button>
             ))}
           </div>
-          <button
-            className="btn ghost"
-            disabled={!rows.length}
-            onClick={() =>
-              exportCsv(
-                `${tab}-report.csv`,
-                rows.map((r) =>
-                  Object.fromEntries(columns.map(([k]) => [k, r[k] ?? '']))
+          <div className="row-actions">
+            <a
+              className="btn"
+              href="/docs/waste-picker-system-report.pdf"
+              download="Waste Picker System - Detailed System Report.pdf"
+            >
+              Download system PDF
+            </a>
+            <button
+              className="btn ghost"
+              disabled={!rows.length}
+              onClick={() =>
+                exportCsv(
+                  `${tab}-report.csv`,
+                  rows.map((r) =>
+                    Object.fromEntries(columns.map(([k]) => [k, r[k] ?? '']))
+                  )
                 )
-              )
-            }
-          >
-            Export CSV
-          </button>
+              }
+            >
+              Export CSV
+            </button>
+          </div>
         </div>
 
         {tab === 'registrations' && (
