@@ -1,0 +1,189 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000"
+     preserveAspectRatio="xMidYMid slice" role="img"
+     aria-label="Dawn over the Lake Victoria basin, with waste pickers carrying collection sacks along the shoreline">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#06210C"/>
+      <stop offset="32%"  stop-color="#0E3A17"/>
+      <stop offset="58%"  stop-color="#1B5E20"/>
+      <stop offset="78%"  stop-color="#4E7A2A"/>
+      <stop offset="92%"  stop-color="#B8862F"/>
+      <stop offset="100%" stop-color="#E0A845"/>
+    </linearGradient>
+
+    <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#FFD98A" stop-opacity="0.95"/>
+      <stop offset="45%"  stop-color="#F0B44F" stop-opacity="0.38"/>
+      <stop offset="100%" stop-color="#E0A845" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#C79038"/>
+      <stop offset="12%"  stop-color="#5C6E2E"/>
+      <stop offset="45%"  stop-color="#123A1B"/>
+      <stop offset="100%" stop-color="#08240E"/>
+    </linearGradient>
+
+    <linearGradient id="hillFar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1E4A24"/>
+      <stop offset="100%" stop-color="#143A1B"/>
+    </linearGradient>
+
+    <linearGradient id="hillNear" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#10310F"/>
+      <stop offset="100%" stop-color="#0A2410"/>
+    </linearGradient>
+
+    <!-- Darkens the edges so the sign-in card keeps its contrast -->
+    <radialGradient id="vignette" cx="50%" cy="46%" r="78%">
+      <stop offset="0%"   stop-color="#000000" stop-opacity="0"/>
+      <stop offset="62%"  stop-color="#02170A" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#011207" stop-opacity="0.78"/>
+    </radialGradient>
+
+    <linearGradient id="shimmer" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#FFD98A" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#FFD98A" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!--  sky -->
+  <rect width="1600" height="1000" fill="url(#sky)"/>
+  <circle cx="1148" cy="632" r="300" fill="url(#sunGlow)"/>
+  <circle cx="1148" cy="632" r="46" fill="#FFDC96" opacity="0.92"/>
+
+  <!-- scattered high cloud bands -->
+  <g fill="#FFFFFF" opacity="0.05">
+    <rect x="120" y="212" width="430" height="9" rx="4.5"/>
+    <rect x="250" y="252" width="300" height="7" rx="3.5"/>
+    <rect x="900" y="180" width="520" height="8" rx="4"/>
+    <rect x="1040" y="224" width="330" height="6" rx="3"/>
+    <rect x="520" y="330" width="620" height="7" rx="3.5"/>
+  </g>
+
+  <!--  hills -->
+  <path fill="url(#hillFar)"
+        d="M0 640 L150 566 L286 612 L430 540 L582 606 L712 556 L860 620 L1010 566 L1160 618 L1320 558 L1460 610 L1600 566 L1600 660 L0 660 Z"/>
+  <path fill="url(#hillNear)" opacity="0.96"
+        d="M0 664 L128 620 L268 656 L410 610 L548 654 L690 616 L836 660 L980 618 L1128 658 L1284 614 L1432 656 L1600 618 L1600 690 L0 690 Z"/>
+
+  <!--  water -->
+  <rect x="0" y="656" width="1600" height="200" fill="url(#water)"/>
+
+  <!-- sun reflection broken into a shimmering column -->
+  <g fill="url(#shimmer)">
+    <rect x="1108" y="664" width="82" height="5" rx="2.5"/>
+    <rect x="1092" y="682" width="116" height="5" rx="2.5" opacity="0.85"/>
+    <rect x="1114" y="700" width="70" height="4" rx="2" opacity="0.75"/>
+    <rect x="1080" y="718" width="140" height="5" rx="2.5" opacity="0.62"/>
+    <rect x="1120" y="738" width="58" height="4" rx="2" opacity="0.5"/>
+    <rect x="1070" y="758" width="160" height="4" rx="2" opacity="0.36"/>
+    <rect x="1116" y="780" width="70" height="3" rx="1.5" opacity="0.24"/>
+  </g>
+
+  <!-- gentle ripples across the lake -->
+  <g stroke="#DFF3E2" stroke-linecap="round" fill="none" opacity="0.12">
+    <path d="M60 700 q26 -7 52 0 t52 0"   stroke-width="3"/>
+    <path d="M300 728 q30 -8 60 0 t60 0"  stroke-width="3"/>
+    <path d="M640 712 q26 -7 52 0 t52 0"  stroke-width="3"/>
+    <path d="M180 774 q34 -9 68 0 t68 0"  stroke-width="3.5"/>
+    <path d="M520 796 q30 -8 60 0 t60 0"  stroke-width="3.5"/>
+    <path d="M880 762 q28 -8 56 0 t56 0"  stroke-width="3"/>
+    <path d="M1290 742 q30 -8 60 0 t60 0" stroke-width="3"/>
+    <path d="M1400 800 q34 -9 68 0 t68 0" stroke-width="3.5"/>
+  </g>
+
+  <!-- fishing boat on the far water -->
+  <g fill="#07220D" opacity="0.85">
+    <path d="M392 686 l70 0 -9 15 -52 0 Z"/>
+    <rect x="425" y="660" width="3" height="26"/>
+    <path d="M428 660 l24 26 -24 0 Z"/>
+  </g>
+
+  <!--  shoreline -->
+  <path fill="#0A2A11"
+        d="M0 830 q210 -34 420 -6 q220 30 430 -4 q220 -36 430 -2 q170 26 320 6 L1600 1000 L0 1000 Z"/>
+  <path fill="#061C0A"
+        d="M0 884 q260 -30 520 -2 q260 28 520 -6 q290 -34 560 2 L1600 1000 L0 1000 Z"/>
+
+  <!--  waste picker figures -->
+  <!-- The people this register exists to recognise: carrying sacks
+       along the shoreline at first light. -->
+  <g fill="#041508">
+    <!-- figure 1: carrying a sack on the shoulder -->
+    <g transform="translate(300 792) scale(1.05)">
+      <circle cx="0" cy="-72" r="12"/>
+      <path d="M-8 -60 q8 -5 16 0 l6 34 -28 0 Z"/>
+      <path d="M-10 -26 l7 0 2 30 -8 0 Z"/>
+      <path d="M3 -26 l7 0 5 30 -8 0 Z"/>
+      <path d="M6 -56 q16 -6 22 8 l-8 5 q-8 -9 -14 -6 Z"/>
+      <!-- the sack -->
+      <path d="M18 -92 q30 -6 36 22 q5 24 -18 30 q-26 6 -32 -18 q-5 -26 14 -34 Z" opacity="0.95"/>
+    </g>
+
+    <!-- figure 2: bent, gathering -->
+    <g transform="translate(432 800) scale(0.96)">
+      <circle cx="4" cy="-58" r="11"/>
+      <path d="M-6 -48 q12 -6 22 2 l4 26 -28 0 Z"/>
+      <path d="M-8 -20 l7 0 1 24 -8 0 Z"/>
+      <path d="M4 -20 l7 0 4 24 -8 0 Z"/>
+      <path d="M14 -40 q14 6 16 20 l-8 3 q-3 -11 -12 -15 Z"/>
+    </g>
+
+    <!-- figure 3: pushing a handcart of sorted material -->
+    <g transform="translate(1128 806) scale(1.02)">
+      <circle cx="-2" cy="-70" r="12"/>
+      <path d="M-11 -58 q10 -5 19 0 l5 32 -29 0 Z"/>
+      <path d="M-12 -26 l7 0 2 30 -8 0 Z"/>
+      <path d="M1 -26 l7 0 5 30 -8 0 Z"/>
+      <path d="M8 -52 l34 -10 3 9 -34 10 Z"/>
+      <!-- cart -->
+      <path d="M42 -66 l72 0 8 34 -88 0 Z"/>
+      <circle cx="62" cy="-22" r="11"/>
+      <circle cx="104" cy="-22" r="11"/>
+      <rect x="46" y="-78" width="16" height="14" rx="2" opacity="0.8"/>
+      <rect x="70" y="-82" width="20" height="18" rx="2" opacity="0.8"/>
+      <rect x="96" y="-76" width="14" height="12" rx="2" opacity="0.8"/>
+    </g>
+
+    <!-- figure 4: walking, distant -->
+    <g transform="translate(880 812) scale(0.8)" opacity="0.9">
+      <circle cx="0" cy="-64" r="11"/>
+      <path d="M-8 -53 q9 -5 17 0 l5 30 -27 0 Z"/>
+      <path d="M-9 -23 l6 0 2 27 -7 0 Z"/>
+      <path d="M2 -23 l6 0 5 27 -7 0 Z"/>
+      <path d="M-14 -86 q26 -5 31 18 q4 20 -15 25 q-22 5 -27 -15 q-4 -22 11 -28 Z" opacity="0.92"/>
+    </g>
+  </g>
+
+  <!-- sparse reeds along the water's edge -->
+  <g stroke="#04150A" stroke-linecap="round" fill="none" opacity="0.9">
+    <path d="M96 866 q-6 -34 4 -58"  stroke-width="4"/>
+    <path d="M110 868 q2 -30 14 -50" stroke-width="4"/>
+    <path d="M126 870 q8 -26 22 -42" stroke-width="3.5"/>
+    <path d="M1468 862 q-8 -32 0 -54" stroke-width="4"/>
+    <path d="M1484 864 q4 -28 16 -46" stroke-width="4"/>
+    <path d="M1502 868 q10 -24 24 -38" stroke-width="3.5"/>
+  </g>
+
+  <!-- drifting recycling chevrons, a quiet nod to the work -->
+  <g fill="#FFFFFF" opacity="0.055">
+    <g transform="translate(228 300) rotate(18) scale(1.5)">
+      <path d="M0 -14 l12 21 -24 0 Z"/>
+      <path d="M22 12 l-12 21 -12 -21 Z" transform="rotate(120)"/>
+      <path d="M-22 12 l24 0 -12 21 Z" transform="rotate(240)"/>
+    </g>
+    <g transform="translate(1372 402) rotate(-12) scale(1.1)">
+      <path d="M0 -14 l12 21 -24 0 Z"/>
+      <path d="M22 12 l-12 21 -12 -21 Z" transform="rotate(120)"/>
+      <path d="M-22 12 l24 0 -12 21 Z" transform="rotate(240)"/>
+    </g>
+    <g transform="translate(700 168) rotate(28) scale(0.85)">
+      <path d="M0 -14 l12 21 -24 0 Z"/>
+      <path d="M22 12 l-12 21 -12 -21 Z" transform="rotate(120)"/>
+      <path d="M-22 12 l24 0 -12 21 Z" transform="rotate(240)"/>
+    </g>
+  </g>
+
+  <rect width="1600" height="1000" fill="url(#vignette)"/>
+</svg>

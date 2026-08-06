@@ -73,6 +73,11 @@ export default function Login() {
           INSY 492 Senior Project &middot; University of Eastern Africa, Baraton
         </p>
       </form>
+
+      <p className="login-caption">
+        Serving waste pickers across the Lake Victoria basin — Kisumu, Siaya, Busia, Homa Bay,
+        Migori, Kakamega, Vihiga, Bungoma, Trans Nzoia and Nandi.
+      </p>
     </div>
   );
 }
