@@ -97,20 +97,4 @@ export const api = {
   reportCollections: () => request('/api/reports/collections'),
 };
 
-/** Turns an array of flat objects into a CSV download. */
-export function exportCsv(filename, rows) {
-  if (!rows?.length) return;
-  const cols = Object.keys(rows[0]);
-  const escape = (v) => {
-    const s = v === null || v === undefined ? '' : String(v);
-    return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
-  };
-  const csv = [cols.join(','), ...rows.map((r) => cols.map((c) => escape(r[c])).join(','))].join('\n');
-
-  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-  const link = document.createElement('a');
-  link.href = URL.createObjectURL(blob);
-  link.download = filename;
-  link.click();
-  URL.revokeObjectURL(link.href);
-}
+// Reports are issued as branded PDFs, not CSV — see lib/pdf.js.
